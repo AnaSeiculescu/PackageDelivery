@@ -14,5 +14,13 @@ public class Package {
 	private int packageValue;
 	private LocalDate deliveryDate;
 
-
+	@Override
+	public String toString() {
+		return "Package{" +
+				"targetLocation='" + targetLocation + '\'' +
+				", targetDistance=" + targetDistance +
+				", packageValue=" + packageValue +
+				", deliveryDate=" + deliveryDate +
+				'}';
+	}
 }

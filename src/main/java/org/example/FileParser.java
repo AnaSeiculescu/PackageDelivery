@@ -1,5 +1,7 @@
 package org.example;
 
+import lombok.Getter;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,7 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static java.lang.Integer.parseInt;
-
+@Getter
 public class FileParser {
 
 	public List<String> readFile(Path path) {
