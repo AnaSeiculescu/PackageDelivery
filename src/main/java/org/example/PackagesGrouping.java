@@ -25,16 +25,22 @@ public class PackagesGrouping {
 		return allPackages;
 	}
 
-	public List<GroupedPackages> groupingPackages() {
+	public List<GroupedPackagesByLoc> groupingPackagesByLocation() {
 		List<Package> allPackages = getDataFromFile();
 
-		List<GroupedPackages> groupedPackages = allPackages.stream()
-				.collect(Collectors.groupingBy(Package::getTargetLocation))
+		List<GroupedPackagesByLoc> groupedPackages = allPackages.stream()
+				.collect(Collectors.groupingBy(Package::getTargetLocation))  // grouping packages by location, resulting in a Map<String, List<Package>>
 				.entrySet()
-				.stream()
-				.map(entry -> new GroupedPackages(entry.getKey(), entry.getValue()))
+				.stream() // converting the entries of the Map back into a stream
+				.map(entry -> new GroupedPackagesByLoc(entry.getKey(), entry.getValue())) // for each we create a new GroupedPackagesByLoc
 				.collect(Collectors.toList());
 
 		return groupedPackages;
 	}
+
+//	public List<GroupedPackagesByDate> groupingPackagesByDate() {
+//		List<GroupedPackagesByLoc> groupedPackagesByLocation = groupingPackagesByLocation();
+//
+//		return groupedPackagesByDate;
+//	}
 }

@@ -14,6 +14,6 @@ public class App
 //        System.out.println( fileParser.parseFileContent(fileParser.readFile(Paths.get("input.csv"))));
 
         PackagesGrouping packagesGrouping = new PackagesGrouping("input.csv");
-        System.out.println(packagesGrouping.groupingPackages());
+        System.out.println(packagesGrouping.groupingPackagesByLocation());
     }
 }
